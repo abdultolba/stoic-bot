@@ -1,0 +1,28 @@
+{
+  "name": "stoic-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that provides quotes from Meditations, Enchiridion, and Epistulae Morales ad Lucilium.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdultolba/stoic-bot.git"
+  },
+  "keywords": [
+    "stoic",
+    "stoicism"
+  ],
+  "author": "Abdulrahman Tolba <abdultolba@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abdultolba/stoic-bot/issues"
+  },
+  "homepage": "https://github.com/abdultolba/stoic-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "dotenv": "^8.2.0",
+    "meditations": "^1.0.0"
+  }
+}
