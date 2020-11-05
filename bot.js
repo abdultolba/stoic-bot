@@ -158,7 +158,7 @@ bot.on("message", (message) => {
         .setTimestamp()
         .setFooter("StoicBot v1.0.0")
     );
-  } else if ((command = "shelp")) {
+  } else if (command == "shelp") {
     let embed = new Discord.MessageEmbed()
       .setColor("#F5BC74")
       .setAuthor(
