@@ -100,10 +100,12 @@ bot.on("message", (message) => {
 
     const passageNums = args[0].split(":");
 
-    if(passageNums.length > 2 || passageNums.length == 1){
+    if (passageNums.length != 2) {
       const errorEmbed = new Discord.MessageEmbed()
         .setColor("#EA4552")
-        .setDescription("Error: Please provide valid book and passage numbers. e.g. **!meditate 5:11**")
+        .setDescription(
+          "Error: Please provide valid book and passage numbers. e.g. **!meditate 5:11**"
+        )
         .setTimestamp()
         .setFooter("StoicBot v1.0.0");
       return channel.send(errorEmbed);
@@ -111,10 +113,12 @@ bot.on("message", (message) => {
 
     const [book, phraseNum] = passageNums;
 
-    if(isNaN(parseInt(book)) || isNaN(parseInt(phraseNum))){
+    if (isNaN(parseInt(book)) || isNaN(parseInt(phraseNum))) {
       const errorEmbed = new Discord.MessageEmbed()
         .setColor("#EA4552")
-        .setDescription("Error: Please provide valid *numerical* book and passage numbers. e.g. **!meditate 1:4**")
+        .setDescription(
+          "Error: Please provide valid *numerical* book and passage numbers. e.g. **!meditate 1:4**"
+        )
         .setTimestamp()
         .setFooter("StoicBot v1.0.0");
       return channel.send(errorEmbed);
@@ -146,12 +150,42 @@ bot.on("message", (message) => {
       return channel.send(quoteB);
     }
 
-    return channel.send(new Discord.MessageEmbed()
-    .setColor("#0099ff")
-    .setAuthor("Marcus Aurelius")
-    .setDescription(`"${quote}"`)
-    .setTimestamp()
-    .setFooter("StoicBot v1.0.0"));
+    return channel.send(
+      new Discord.MessageEmbed()
+        .setColor("#0099ff")
+        .setAuthor("Marcus Aurelius")
+        .setDescription(`"${quote}"`)
+        .setTimestamp()
+        .setFooter("StoicBot v1.0.0")
+    );
+  } else if ((command = "shelp")) {
+    let embed = new Discord.MessageEmbed()
+      .setColor("#F5BC74")
+      .setAuthor(
+        "Stoic Bot",
+        "https://res.cloudinary.com/friendly-social/image/upload/v1604602885/marcus.png",
+        "https://www.github.com/abdultolba/stoic-bot"
+      )
+      .setTitle("Commands")
+      .addFields(
+        {
+          name: "!meditate",
+          value: "Retrieve a random quote from *The  Meditations*",
+        },
+        {
+          name: "!meditate <book_num>:<passage_num>",
+          value:
+            "Retrieve a specific passage from *The Meditations* given a valid book and passage number.",
+        },
+        {
+          name: "!shelp",
+          value: "Retrieve a list of commands for the stoic bot.",
+        }
+      )
+      .setTimestamp()
+      .setFooter("StoicBot v1.0.0");
+
+    return channel.send(embed);
   }
 });
 
