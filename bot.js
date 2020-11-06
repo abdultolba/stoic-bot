@@ -29,6 +29,8 @@ if (!prefix) {
 
 // Ready is emitted whenever a message is created.
 bot.on("ready", () => {
+  bot.user.setActivity('!meditate | !shelp', { type: 'LISTENING' });
+
   const { discord } = util;
   // A little message to show that the bot has connected.
   console.log(
